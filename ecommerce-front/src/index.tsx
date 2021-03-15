@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { API } from './config';
+import Routes from './Routes';
 console.log(API)
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Routes/>
   </React.StrictMode>,
   document.getElementById('root')
 );
