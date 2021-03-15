@@ -1,12 +1,17 @@
+import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { API } from './config';
 import Routes from './Routes';
+import store, { history } from './store';
 console.log(API)
 ReactDOM.render(
-  <React.StrictMode>
-    <Routes/>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
