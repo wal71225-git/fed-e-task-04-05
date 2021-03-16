@@ -2,10 +2,10 @@ import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { API } from './config';
+// import { API } from './config';
 import Routes from './Routes';
 import store, { history } from './store';
-console.log(API)
+import './style.css'
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

@@ -1,14 +1,24 @@
 import React from 'react'
 import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { AppState } from '../../store/reducers/index'
+import { RouterState } from 'connected-react-router'
+function useActive(currentPath: string, pathname: string) {
+  return currentPath === pathname ? 'ant-menu-item-selected' : ''
+}
 const Navigation = () => {
+    const router = useSelector<AppState, RouterState>(state => state.router)
+    const pathName = router.location.pathname
+    const isHome = useActive(pathName, '/')
+    const isShop = useActive(pathName, '/Shop')
     return (
-        <Menu mode="horizontal">
-          <Menu.Item>
+        <Menu mode="horizontal" selectable={false}>
+          <Menu.Item className={isHome}>
             <Link to="/">首页</Link>
           </Menu.Item>
-          <Menu.Item>
-            <Link to="/Shop">商城222</Link>
+          <Menu.Item className={isShop}>
+            <Link to="/Shop">商城</Link>
           </Menu.Item>
         </Menu>
     )
