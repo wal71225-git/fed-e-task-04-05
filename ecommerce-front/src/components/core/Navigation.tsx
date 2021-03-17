@@ -12,6 +12,8 @@ const Navigation = () => {
     const pathName = router.location.pathname
     const isHome = useActive(pathName, '/')
     const isShop = useActive(pathName, '/Shop')
+    const isSignUp = useActive(pathName, '/signup')
+    const isSignIn = useActive(pathName, '/signin')
     return (
         <Menu mode="horizontal" selectable={false}>
           <Menu.Item className={isHome}>
@@ -19,6 +21,12 @@ const Navigation = () => {
           </Menu.Item>
           <Menu.Item className={isShop}>
             <Link to="/Shop">商城</Link>
+          </Menu.Item>
+          <Menu.Item className={isSignUp}>
+            <Link to="/signup">注册</Link>
+          </Menu.Item>
+          <Menu.Item className={isSignIn}>
+            <Link to="/signin">登录</Link>
           </Menu.Item>
         </Menu>
     )
